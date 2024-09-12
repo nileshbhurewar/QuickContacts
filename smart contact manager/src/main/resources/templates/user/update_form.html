@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+
+<body>
+	<section>
+
+		<div class="card">
+
+			
+
+			<div class="card-body">
+				<h1 class="text-center">Update Contact</h1>
+				<div class="container-fluid mt-1">
+					<div class="col-md-10 offset-md-1">
+						<form th:object="${contact}" enctype="multipart/form-data"
+							method="POST" th:action="@{/user/process-update}" class="mt-2">
+							<input type="hidden" th:field="*{cid}" />
+							<!-- Name -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input th:value="${contact.name}" type="text" id="name"
+									name="name" placeholder="Enter Name" class="form-control"
+									th:field="*{name}" required />
+							</div>
+
+							<!-- Second Name -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fas fa-user-plus"></i></span>
+								</div>
+								<input th:value="${contact.secoundName}" type="text"
+									id="secoundName" name="secoundName"
+									placeholder="Enter Second Name" class="form-control"
+									th:field="*{secoundName}" required />
+							</div>
+
+							<!-- Work -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fas fa-briefcase"></i></span>
+								</div>
+								<input th:value="${contact.work}" type="text" id="work"
+									name="work" placeholder="Enter Work" class="form-control"
+									th:field="*{work}" required />
+							</div>
+
+							<!-- Email -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fas fa-envelope"></i></span>
+								</div>
+								<input th:value="${contact.email}" type="email" id="email"
+									name="email" placeholder="Enter Email" class="form-control"
+									th:field="*{email}" required />
+							</div>
+
+							<!-- Phone -->
+							<div class="form-group input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-phone"></i></span>
+								</div>
+								<input th:value="${contact.phone}" type="text" id="phone"
+									name="phone" placeholder="Enter Phone" class="form-control"
+									th:field="*{phone}" required />
+							</div>
+
+
+							<!-- Description -->
+							<div class="form-group">
+								<label for="description"><i class="fas fa-pencil-alt"></i>
+									Description</label>
+								<textarea th:text="${contact.description}" id="description"
+									name="description" class="form-control"
+									th:field="*{description}" rows="5" required></textarea>
+							</div>
+
+							<!-- Submit Button -->
+							<div class="form-group text-center">
+								<button type="submit" class="btn btn-primary">Submit</button>
+								<button type="reset" class="btn btn-danger text-white">
+									Reset</button>
+							</div>
+
+							<!-- Success or Error Message -->
+							<div class="form-group text-center">
+								<p th:if="${message != null}" th:text="${message}"></p>
+							</div>
+						</form>
+						<!-- Closing the form tag here -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- API key is included in link -->
+		<script
+			src="https://cdn.tiny.cloud/1/jg2vs6cdrdgynquhij13kqljutfbwxfftcgeru291x8jhwpa/tinymce/5/tinymce.min.js"
+			referrerpolicy="origin"></script>
+
+		<script>
+        tinymce.init({
+            selector: '#description',
+            plugins: 'advlist autolink lists link image charmap preview anchor textcolor',
+            toolbar: 'undo redo | bold italic underline | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+            menubar: false
+        });
+    </script>
+
+	</section>
+</body>
+</html>

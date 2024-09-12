@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::Layout(~{::section})}">
+<head>
+<meta charset="UTF-8" />
+<title>this is home page</title>
+</head>
+<body>
+
+
+	<section class="banner d-flex flex-column justify-content-center align-items-center text-center bg-light py-5">
+    <div class="container">
+        <!-- Banner Heading and Description -->
+        <div class="mb-4">
+            <h1 class="font-weight-bold mb-3">Smart Contact Manager</h1>
+            <p class="lead">Start collecting your contacts in a smarter way. We provide
+                an efficient and intelligent way of handling your contacts.</p>
+            <button class="btn bg-primary btn-lg text-white">Get Started</button>
+        </div>
+
+        <!-- New Content: Features -->
+        <div class="row text-start mb-4 text-white">
+            <div class="col-md-4 mb-3">
+                
+                    <h3 class="font-weight-bold">Easy Organization</h3>
+                    <p>Organize your contacts effortlessly with our intuitive interface and smart categorization.</p>
+                
+            </div>
+            <div class="col-md-4 mb-3 text-white">
+                
+                    <h3 class="font-weight-bold">Secure Storage</h3>
+                    <p>Keep your contacts safe with our robust security measures and data encryption.</p>
+                
+            </div>
+            <div class="col-md-4 mb-3 text-white">
+                
+                    <h3 class="font-weight-bold">Seamless Integration</h3>
+                    <p>Integrate with various platforms and sync your contacts seamlessly across devices.</p>
+                
+            </div>
+        </div>
+
+        <!-- New Content: Call to Action -->
+        <div class="call-to-action mt-4 ">
+            <h2 class="font-weight-bold">Ready to Get Started?</h2>
+            <p>Join thousands of satisfied users and start managing your contacts more effectively today.</p>
+            <a class="btn bg-primary btn-lg text-white" href="" th:href="@{/signup}">Sign Up Now</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+</body>
+</html>
